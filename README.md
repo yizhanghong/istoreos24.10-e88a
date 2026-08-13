@@ -9,16 +9,16 @@
 更多信息请参阅https://github.com/istoreos
 
 > [!TIP]
-> 此仓库为 **RK3399设备构建iStoreOS，后续更新添加设备中；非官方构建，不保证完全无BUG；如遇无法启动，请接ttl查看输出日志。需要定制的自行fork本仓库后，修改配置.config** 。  
+> 此仓库为 **RK3588设备构建iStoreOS，后续更新添加设备中；非官方构建，不保证完全无BUG；如遇无法启动，请接ttl查看输出日志。需要定制的自行fork本仓库后，修改配置.config** 。  
 > RK35XX的iStoreOS仓库地址：[xiaomeng9597/iStoreOS-RK35XX](https://github.com/xiaomeng9597/iStoreOS-RK35XX)
 
 > **如果某些设备WiFi不可用，请去[仓库](https://github.com/armbian/firmware)找对应的无线网卡驱动，复制到对应目录替换**。
 
-## RK3399-dev
+## RK3588-dev
 
 | ----           | 支持设备                                                                                                                               |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------|
-| RK3399-dev     | am40,dg3399,dlfr100,fine3399,fmx1-pro,fnet-3399,h3399pc,king3399,mpc1903,sv901-eaio,sv-33a6x,tn3399,tpm312,tvi3315a,xiaobao-nas,zysj   |
+| RK3588-dev     | e88a   |
 
 
 ## 默认配置

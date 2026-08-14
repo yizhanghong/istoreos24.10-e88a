@@ -1,5 +1,8 @@
 name: Build iStore OS
 
+permissions:
+  contents: write
+
 on:
   repository_dispatch:
   workflow_dispatch:
@@ -196,6 +199,7 @@ jobs:
         allowUpdates: true 
         removeArtifacts: false 
         replacesArtifacts: true 
+        repo: ${{ github.repository }}
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |  
           ### iStoreOS Image Information  

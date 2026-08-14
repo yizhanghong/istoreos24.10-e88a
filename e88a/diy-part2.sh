@@ -12,7 +12,9 @@
 # uboot/kernel patches + 02_network. Source tree stays clean for git pull.
 #===============================================
 
-BOARD_DIR=${BOARD_DIR:-$GITHUB_WORKSPACE/e88a-board}
+# BOARD_DIR auto-detects this script's own directory, so the folder may be
+# named e88a / e88a-board / fine3399-whatever — always resolves correctly.
+BOARD_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 #移植设备
 # target/linux/rockchip/image/armv8.mk 添加 e88a 设备型号
@@ -78,5 +80,44 @@ CONFIG_PACKAGE_luci-app-qmodem-sms=y
 CONFIG_PACKAGE_qmodem=y
 CONFIG_PACKAGE_quectel-CM-5G=y
 CONFIG_PACKAGE_quectel-CM-5G-M=y
+" >> .config
+
+#添加网卡驱动 
+echo "
+CONFIG_PACKAGE_ath11k-firmware-wcn6855=y
+CONFIG_PACKAGE_kmod-ath11k=y
+CONFIG_PACKAGE_kmod-ath11k-pci=y
+CONFIG_PACKAGE_ath10k-firmware-qca6174=y
+CONFIG_PACKAGE_kmod-ath10k=y
+CONFIG_PACKAGE_kmod-ath9k=y
+CONFIG_PACKAGE_kmod-ath9k-htc=y
+CONFIG_PACKAGE_kmod-mt76-connac=y
+CONFIG_PACKAGE_kmod-mt76-core=y
+CONFIG_PACKAGE_kmod-mt76-usb=y
+CONFIG_PACKAGE_kmod-mt76x0-common=y
+CONFIG_PACKAGE_kmod-mt76x02-common=y
+CONFIG_PACKAGE_kmod-mt76x02-usb=y
+CONFIG_PACKAGE_kmod-mt76x0u=y
+CONFIG_PACKAGE_kmod-mt76x2-common=y
+CONFIG_PACKAGE_kmod-mt76x2u=y
+CONFIG_PACKAGE_kmod-mt7921-common=y
+CONFIG_PACKAGE_kmod-mt7921-firmware=y
+CONFIG_PACKAGE_kmod-mt7921e=y
+CONFIG_PACKAGE_kmod-mt7921u=y
+CONFIG_PACKAGE_kmod-mt7922-firmware=y
+CONFIG_PACKAGE_rkwifi-firmware=m
+CONFIG_PACKAGE_rkwifi-firmware-ap6255=m
+CONFIG_PACKAGE_rkwifi-firmware-ap6256=m
+CONFIG_PACKAGE_rkwifi-firmware-ap6275p=m
+CONFIG_PACKAGE_rkwifi-firmware-ap6275s=m
+CONFIG_PACKAGE_rkwifi-firmware-ap6398s=m
+CONFIG_PACKAGE_rtl8821ae-firmware=y
+CONFIG_PACKAGE_rtl8821ce-firmware=y
+CONFIG_PACKAGE_rtl8822be-firmware=y
+CONFIG_PACKAGE_rtl8822ce-firmware=y
+CONFIG_PACKAGE_rtl8851be-firmware=y
+CONFIG_PACKAGE_rtl8852ae-firmware=y
+CONFIG_PACKAGE_rtl8852be-firmware=y
+CONFIG_PACKAGE_rtl8852ce-firmware=y
 " >> .config
 

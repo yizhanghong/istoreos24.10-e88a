@@ -36,7 +36,7 @@ cp -f $BOARD_DIR/uboot-rockchip/Makefile package/boot/uboot-rockchip/Makefile
 # 复制 uboot patch（新增 jea-e88a-rk3588 defconfig + U-Boot DTS）
 cp -f $BOARD_DIR/uboot-rockchip/patches/987-rk3588-jea-e88a-uboot.patch package/boot/uboot-rockchip/patches/987-rk3588-jea-e88a-uboot.patch
 
-# 复制 kernel patch（新增 rk3588-jea-e88a.dts + helper dtsi + Makefile dtb 注册）
+# 复制 kernel patch（由 dts-src/rk3588-jea-e88a.dts 生成：自包含单文件 dts + Makefile dtb 注册，已去除 8 个 dtsi 依赖）
 cp -f $BOARD_DIR/kernel-rockchip/patches/987-rockchip-rk3588-jea-e88a-kernel.patch target/linux/rockchip/patches-6.6/987-rockchip-rk3588-jea-e88a-kernel.patch
 
 # 复制 02_network
